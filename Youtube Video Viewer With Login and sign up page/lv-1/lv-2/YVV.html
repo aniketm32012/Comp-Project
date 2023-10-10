@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="lv-2%20css/YVV.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YVV</title>
+</head>
+<body>
+<h1 class="h1">YouTube Video Viewer</h1>
+<p class="h1">Enter a YouTube video URL:</p>
+<!-- Change the id of the input element to "videoInput" -->
+<input type="text" id="videoInput" placeholder="Enter YouTube URL">
+<button onclick="playVideo()">Play Video</button>
+<div id="player"></div>
+
+<script>
+        // Function to extract video ID from YouTube URL
+        function extractVideoID(url) {
+            const regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[1]) ? match[1] : null;
+        }
+
+        // Function to create and play the YouTube video player
+        function playVideo() {
+            const videoUrl = document.getElementById("videoInput").value; // Updated input id
+            const videoID = extractVideoID(videoUrl);
+
+            if (videoID) {
+                // Create an iframe element for the YouTube video player
+                const playerDiv = document.getElementById("player");
+                playerDiv.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoID}" frameborder="0" allowfullscreen></iframe>`;
+            } else {
+                alert("Invalid YouTube URL. Please enter a valid URL.");
+            }
+        }
+    </script>
+</body>
+</html>

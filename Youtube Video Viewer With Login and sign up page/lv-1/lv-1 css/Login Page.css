@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+}
+.form {
+    position: absolute;
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.email {
+    color: white;
+}
+.password {
+    color: white;
+}
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
